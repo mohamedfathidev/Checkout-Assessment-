@@ -14,8 +14,9 @@ A Laravel-based checkout and payment system integrating PayTabs for seamless onl
 2. Store the order in the database
 3. Checkout page to enter customer details
 4. Update the order with customer details
-5. PayTabs hosted page to pay through the gateway
-6. Optional: Full refund for paid orders
+5. Pass the customer info to payment gateway without needing to re enter it again 
+6. PayTabs hosted page to pay through the gateway
+7. Optional: Full refund for paid orders
 
 ---
 
@@ -67,6 +68,7 @@ A Laravel-based checkout and payment system integrating PayTabs for seamless onl
      ```env
      NGROK_URL=https://abcd1234.ngrok.io
      ```
+   - Add in .env NGROK_URL and Assign this URL to it (run php artisan cache:clear) after adding this in .env
    - This is required for PayTabs to send payment callbacks to your local environment.
 8. **Start development servers:**
    ```bash
@@ -121,16 +123,7 @@ Set these in your `.env` file:
 - `resources/views/` – Blade templates for UI
 - `routes/web.php` – Web routes
 - `config/paytabs.php` – PayTabs integration config
-
----
-
-## Testing
-
-- Run tests with:
-  ```bash
-  php artisan test
-  ```
-
+- 
 ---
 
 ## License
