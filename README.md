@@ -25,7 +25,6 @@ A Laravel-based checkout and payment system integrating PayTabs for seamless onl
 ### Prerequisites
 - PHP >= 8.2
 - Composer
-- Node.js & npm
 - MySQL (or SQLite/Postgres)
 - [ngrok](https://ngrok.com/) (for local callback URLs)
 
@@ -40,22 +39,24 @@ A Laravel-based checkout and payment system integrating PayTabs for seamless onl
    ```bash
    composer install
    ```
-3. **Install JS dependencies:**
-   ```bash
-   npm install
-   ```
-4. **Copy and configure environment:**
+   
+3. **Copy and configure environment:**
    ```bash
    cp .env.example .env
    # Edit .env and set required variables (see below)
    ```
-5. **Generate application key:**
+4. **Generate application key:**
    ```bash
    php artisan key:generate
    ```
-6. **Run migrations:**
+5. **Run migrations:**
    ```bash
    php artisan migrate
+   ```
+
+6. **Start development servers:**
+   ```bash
+   php artisan serve (then )
    ```
 7. **Start ngrok and set NGROK_URL:**
    - Start your Laravel server (e.g. `php artisan serve`)
@@ -70,11 +71,6 @@ A Laravel-based checkout and payment system integrating PayTabs for seamless onl
      ```
    - Add in .env NGROK_URL and Assign this URL to it (run php artisan cache:clear) after adding this in .env
    - This is required for PayTabs to send payment callbacks to your local environment.
-8. **Start development servers:**
-   ```bash
-   php artisan serve
-   npm run dev
-   ```
 
 ---
 
