@@ -94,8 +94,7 @@ class CheckoutController extends Controller
     public function fullRefund(Order $order)
     {
         $result = $this->paymentService->refundOrder($order->id);
-        
-        
+            
         if ($result['success']) {
             return redirect()->route('payment.success')->with('message', $result['message']);
         } else {

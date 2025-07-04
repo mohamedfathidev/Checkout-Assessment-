@@ -110,6 +110,7 @@ class PaymentService
         $order = Order::find($id);
         $payment = Payment::where('order_id', $id)->first();
         $paymentTranTypes = $order->payments->pluck('tran_type')->toArray();
+        $customerDetails = json_decode($order->customer_details);
 
         // order or payment Not Found
         if (!$order || !$payment) {
@@ -145,20 +146,20 @@ class PaymentService
             "profile_id" => $profileId,
             "tran_type" => "refund",
             "tran_class" => "ecom",
-            "cart_id" => (string)$id,
+            "cart_id" => (string)$id, // Field cart_id must be type string
             "cart_currency" => $order->currency,
             "cart_amount" => $order->total_amount,
             "cart_description" => "Refund for order #{$id}",
             "tran_ref" => $payment->tran_ref,
             "customer_details" => [
-                "name" => $order->customer_name ?? "Customer",
-                "email" => $order->customer_email ?? "customer@example.com",
-                "phone" => $order->customer_phone ?? "1234567890",
-                "street1" => $order->billing_address ?? "Address",
-                "city" => $order->billing_city ?? "City",
-                "state" => $order->billing_state ?? "State",
-                "country" => $order->billing_country ?? "EG",
-                "zip" => $order->billing_zip ?? "12345"
+                "name" => $customerDetails->billing->name ?? null,
+                "email" => $customerDetails->billing->email ?? null,
+                "phone" => $customerDetails->billing->phone ?? null,
+                "street1" => $customerDetails->billing->street1 ?? null,
+                "city" => $customerDetails->billing->city ?? null,
+                "state" => $customerDetails->billing->state ?? null,
+                "country" => $customerDetails->billing->country ?? null,
+                "zip" => $customerDetails->billing->zip ?? null,
             ]
         ];
 
