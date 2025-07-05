@@ -35,10 +35,11 @@
 
 ## 🛠 Tech Stack
 
-- Laravel 10 (PHP 8.2+)  
+- Laravel 12 (PHP 8.2+)  
 - MySQL  
 - PayTabs Laravel Package  
-- Blade Templates  
+- Blade Templates
+- postman 
 - Ngrok (for local callback URLs)  
 - Composer & Git  
 
