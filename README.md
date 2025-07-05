@@ -123,6 +123,13 @@ ngrok http 8000
 6. You can refund the order if payment was successful.  
 
 ---
+---
+
+## Test Cards
+
+1. Status (Failed) E => 4012001036983332            & CVV : 530   
+2. Status (Success) A => 4111111111111111           & CVV : 123    
+---
 
 ## 📂 Project Structure
 
